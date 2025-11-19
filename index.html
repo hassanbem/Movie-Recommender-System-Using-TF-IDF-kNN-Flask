@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Recommender</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input[type="text"] { width: 300px; padding: 8px; }
+        input[type="submit"] { padding: 8px 12px; }
+        ul { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Movie Recommender</h1>
+    <form method="POST">
+        <input type="text" name="movie" placeholder="Enter movie title" value="{{ query }}">
+        <input type="submit" value="Recommend">
+    </form>
+
+    {% if recommendations %}
+        <h2>Recommendations:</h2>
+        <ul>
+        {% for movie in recommendations %}
+            <li>{{ movie }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
